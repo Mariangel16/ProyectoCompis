@@ -3,7 +3,7 @@ from .contacto import Contacto
 
 class Agenda:
     def __init__(self):
-        self._contactos: List[Contacto] = []  # base temporal (luego cambian por su estructura)
+        self._contactos: List[Contacto] = [] 
 
     def agregar_contacto(self, contacto: Contacto) -> bool:
         self._contactos.append(contacto)

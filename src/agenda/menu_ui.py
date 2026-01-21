@@ -36,6 +36,16 @@ class MenuUI:
                         break 
                     print("Error: Correo inválido (ej. usuario@dominio.com).")
 
+                # 3. Teléfono realiza el mismo proceso que correo; El telefono tiene que ser de 8 numeros
+                while True:
+                    telefono = input("Teléfono: ").strip()
+                    if Validador.telefono_valido(telefono):
+                        break 
+                    print("Error: Teléfono inválido (deben ser 8 dígitos).")
+
+                nuevo_contacto=Contacto(nombre,correo,telefono)
+                self.agenda.agregar_contacto(nuevo_contacto)
+                print("Contacto agregado exitosamente.")
 
             elif op == "2":
                 contactos = self.agenda.listar_contactos()
@@ -52,6 +62,7 @@ class MenuUI:
                     print("No encontrado.")
                 else:
                     print(f"Encontrado: {c.nombre} | {c.correo} | {c.telefono}")
+        
 
             elif op == "0":
                 print("Saliendo...")
