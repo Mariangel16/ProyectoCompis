@@ -1,5 +1,6 @@
 from .agenda import Agenda
 from .contacto import Contacto
+from .validador import Validador 
 
 class MenuUI:
     def __init__(self, agenda: Agenda):
@@ -25,11 +26,16 @@ class MenuUI:
             op = input("Opción: ").strip()
 
             if op == "1":
-                nombre = self._leer_no_vacio("Nombre: ")
-                correo = self._leer_no_vacio("Correo: ")
-                telefono = self._leer_no_vacio("Teléfono: ")
-                self.agenda.agregar_contacto(Contacto(nombre, correo, telefono))
-                print("Contacto agregado.")
+                print(">> Ingresando nuevo contacto:")
+                nombre = self._leer_no_vacio("Nombre: ") #validar que no este vacio
+
+                # 2. Correo, se valida hasta que sea correcto el correo. 
+                while True:
+                    correo = input("Correo: ").strip()
+                    if Validador.correo_valido(correo):
+                        break 
+                    print("Error: Correo inválido (ej. usuario@dominio.com).")
+
 
             elif op == "2":
                 contactos = self.agenda.listar_contactos()

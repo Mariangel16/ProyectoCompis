@@ -1,5 +1,6 @@
 from agenda.agenda import Agenda
 from agenda.menu_ui import MenuUI
+from agenda.validador import Validador
 
 def main() -> None:
     agenda = Agenda()
