@@ -57,12 +57,14 @@ class MenuUI:
 
             elif op == "3":
                 criterio = self._leer_no_vacio("Buscar (nombre/correo/teléfono): ")
-                c = self.agenda.buscar_contacto(criterio)
-                if c is None:
+                resultados = self.agenda.buscar_contactos(criterio)
+
+                if not resultados:
                     print("No encontrado.")
                 else:
-                    print(f"Encontrado: {c.nombre} | {c.correo} | {c.telefono}")
-        
+                    print("Resultados:")
+                    for i, c in enumerate(resultados, start=1):
+                        print(f"{i}. {c.nombre} | {c.correo} | {c.telefono}")
 
             elif op == "0":
                 print("Saliendo...")

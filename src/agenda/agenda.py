@@ -9,12 +9,17 @@ class Agenda:
         self._contactos.append(contacto)
         return True
 
-    def buscar_contacto(self, criterio: str) -> Optional[Contacto]:
+    def buscar_contactos(self, criterio: str) -> List[Contacto]:
         criterio = criterio.strip().lower()
+        resultados: List[Contacto] = []
+
         for c in self._contactos:
-            if c.nombre.lower() == criterio or c.correo.lower() == criterio or c.telefono == criterio:
-                return c
-        return None
+            if (criterio in c.nombre.lower()
+                or criterio in c.correo.lower()
+                or criterio in c.telefono):
+                resultados.append(c)
+
+        return resultados
 
     def listar_contactos(self) -> List[Contacto]:
         return list(self._contactos)
