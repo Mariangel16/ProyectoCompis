@@ -56,10 +56,10 @@ Buscar contacto
 Permite buscar contactos escribiendo:
 
 -parte del nombre
-- parte del **correo
+- parte del correo
 - o el teléfono
 
-La búsqueda es **parcial**, lo que significa que no es necesario escribir el dato completo.
+La búsqueda es parcial, lo que significa que no es necesario escribir el dato completo.
 Por ejemplo, al buscar “ana” se pueden encontrar contactos como “Ana”, “Anabella” o “Mariana”.
 
 Si hay varios contactos que coinciden con la búsqueda, se muestran todos.
